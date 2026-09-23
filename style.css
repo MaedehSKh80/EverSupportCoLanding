@@ -198,6 +198,13 @@ button {
   background: linear-gradient(135deg, var(--navy), var(--slate));
   box-shadow: 0 8px 22px rgba(4, 35, 77, 0.22);
 }
+
+.brand-mark img {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
 .nav-links {
   display: flex;
   align-items: center;
