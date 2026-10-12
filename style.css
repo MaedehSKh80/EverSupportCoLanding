@@ -660,12 +660,21 @@ h2 em {
   gap: 11px;
 }
 
+/* ========================================
+   WORK / PORTFOLIO GRID
+   ======================================== */
+
 .work-grid {
   display: grid;
   grid-template-columns: 1.35fr 0.85fr;
   gap: 18px;
   margin-top: 50px;
 }
+
+/* ========================================
+   WORK CARD
+   ======================================== */
+
 .work-card {
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -674,27 +683,52 @@ h2 em {
   box-shadow: var(--shadow-soft);
   transition: 0.3s ease;
 }
+
 .work-card:hover {
   transform: translateY(-7px);
   box-shadow: var(--shadow);
 }
+
+/* بزرگ‌ترین کارت */
+
 .work-large {
   grid-row: span 2;
 }
+
+/* ========================================
+   WORK IMAGE AREA
+   ======================================== */
+
 .work-image {
-  min-height: 250px;
+  min-height: 300px;
   position: relative;
   overflow: hidden;
-  display: grid;
-  place-items: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 28px;
+
   transition: 0.5s ease;
 }
+
+/* ارتفاع کارت بزرگ */
+
 .work-large .work-image {
   min-height: 530px;
 }
+
+/* Zoom بسیار ظریف هنگام Hover */
+
 .work-card:hover .work-image {
   transform: scale(1.015);
 }
+
+/* ========================================
+   BACKGROUND GRADIENTS
+   ======================================== */
+
 .gradient-a {
   background:
     radial-gradient(
@@ -704,6 +738,7 @@ h2 em {
     ),
     linear-gradient(135deg, #062958, #536a94 52%, #1d3970);
 }
+
 .gradient-b {
   background:
     radial-gradient(
@@ -713,6 +748,7 @@ h2 em {
     ),
     linear-gradient(135deg, #091c35, #244a78);
 }
+
 .gradient-c {
   background:
     radial-gradient(
@@ -722,107 +758,298 @@ h2 em {
     ),
     linear-gradient(135deg, #061b36, #5c7094);
 }
+
+/* ========================================
+   BROWSER MOCKUP
+   ======================================== */
+
+.browser-mockup {
+  width: 88%;
+  height: 82%;
+
+  border-radius: 14px;
+  overflow: hidden;
+
+  background: #ffffff;
+
+  border: 1px solid rgba(255, 255, 255, 0.4);
+
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.28),
+    0 8px 20px rgba(0, 0, 0, 0.12);
+
+  transform: translateY(8px) perspective(900px) rotateX(2deg);
+
+  transition: 0.5s ease;
+
+  position: relative;
+  z-index: 2;
+}
+
+/* Hover روی Browser */
+
+.work-card:hover .browser-mockup {
+  transform: translateY(-5px) perspective(900px) rotateX(0deg) scale(1.015);
+}
+
+/* ========================================
+   BROWSER TOP BAR
+   ======================================== */
+
+.browser-bar {
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 6px;
+
+  padding: 0 11px;
+
+  background: rgba(245, 247, 250, 0.97);
+
+  border-bottom: 1px solid #e8ebf0;
+}
+
+/* سه نقطه مرورگر */
+
+.browser-dot {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #c9ced6;
+}
+
+/* ========================================
+   BROWSER SCREEN
+   ======================================== */
+
+.browser-screen {
+  width: 100%;
+  height: calc(100% - 30px);
+
+  overflow: hidden;
+
+  background: #ffffff;
+
+  position: relative;
+}
+
+/* تصویر سایت */
+
+.browser-screen img {
+  width: 100%;
+  height: auto;
+
+  display: block;
+
+  object-fit: cover;
+  object-position: top center;
+
+  transition: 0.5s ease;
+}
+
+/* Zoom خیلی ظریف عکس هنگام Hover */
+
+.work-card:hover .browser-screen img {
+  transform: scale(1.02);
+}
+
+/* ========================================
+   OVERLAY
+   ======================================== */
+
 .work-overlay {
   position: absolute;
+
   inset: 0;
+
   display: grid;
   place-items: center;
+
   background: rgba(4, 35, 77, 0.28);
+
   color: white;
+
   opacity: 0;
-  transition: 0.3s;
+
+  transition: 0.3s ease;
+
+  z-index: 5;
+
+  pointer-events: none;
 }
+
 .work-card:hover .work-overlay {
   opacity: 1;
 }
-.mini-window {
-  width: 68%;
-  height: 64%;
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(16px);
-  padding: 28px;
-  color: white;
-  transform: rotate(-4deg);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
-}
-.mini-title {
-  font-size: 26px;
-  font-weight: 800;
-}
-.mini-subtitle {
-  font-size: 10px;
-  opacity: 0.72;
-  margin-top: 5px;
-  direction: ltr;
-  text-align: right;
-}
-.mini-button {
-  width: 100px;
-  height: 32px;
-  border-radius: 9px;
-  margin-top: 35px;
-  background: linear-gradient(90deg, #7c9cff, #59d7ff);
-}
-.abstract-profile {
-  width: 150px;
-  height: 190px;
-  border-radius: 50% 50% 42% 42%;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.35),
-    rgba(255, 255, 255, 0.06)
-  );
-  position: relative;
-  transform: rotate(8deg);
-}
-.abstract-profile span {
-  position: absolute;
+
+/* آیکون داخل Overlay */
+
+.work-overlay i {
+  width: 48px;
+  height: 48px;
+
+  display: grid;
+  place-items: center;
+
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.3);
+
+  background: rgba(255, 255, 255, 0.16);
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+
+  backdrop-filter: blur(10px);
+
+  font-size: 16px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+
+  transition: 0.3s ease;
 }
-.abstract-profile span:nth-child(1) {
-  width: 65px;
-  height: 65px;
-  top: 24px;
-  left: 42px;
+
+.work-card:hover .work-overlay i {
+  transform: scale(1.08);
 }
-.abstract-profile span:nth-child(2) {
-  width: 105px;
-  height: 55px;
-  bottom: 25px;
-  left: 22px;
-  border-radius: 50% 50% 30% 30%;
-}
-.abstract-profile span:nth-child(3) {
-  width: 180px;
-  height: 25px;
-  top: -18px;
-  left: -15px;
-  transform: rotate(-25deg);
-}
-.abstract-grid {
-  width: 72%;
-  height: 70%;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.18) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.18) 1px, transparent 1px);
-  background-size: 24px 24px;
-  transform: skewY(-5deg);
-}
+
+/* ========================================
+   WORK INFO
+   ======================================== */
+
 .work-info {
   padding: 18px 21px 22px;
 }
+
+/* دسته‌بندی پروژه */
+
 .work-info span {
   font-size: 10px;
+
   color: var(--accent);
+
   font-weight: 700;
+
+  letter-spacing: 0.4px;
+
+  text-transform: uppercase;
 }
+
+/* عنوان پروژه */
+
 .work-info h3 {
   font-size: 15px;
+
   margin-top: 5px;
+
+  line-height: 1.7;
+}
+
+/* توضیحات پروژه */
+
+.work-info p {
+  margin-top: 8px;
+
+  font-size: 12px;
+
+  line-height: 1.8;
+
+  color: var(--text-muted);
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+/* تبلت */
+
+@media (max-width: 900px) {
+  .work-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
+
+  .work-large {
+    grid-row: auto;
+    grid-column: 1 / -1;
+  }
+
+  .work-large .work-image {
+    min-height: 400px;
+  }
+
+  .browser-mockup {
+    width: 88%;
+    height: 82%;
+  }
+}
+
+/* موبایل */
+
+@media (max-width: 600px) {
+  .work-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 35px;
+  }
+
+  .work-large {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .work-image,
+  .work-large .work-image {
+    min-height: 300px;
+    padding: 20px;
+  }
+
+  .browser-mockup {
+    width: 94%;
+    height: 82%;
+    border-radius: 12px;
+  }
+
+  .browser-bar {
+    height: 26px;
+    padding: 0 9px;
+  }
+
+  .browser-dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .browser-screen {
+    height: calc(100% - 26px);
+  }
+
+  .work-info {
+    padding: 16px 18px 20px;
+  }
+
+  .work-info h3 {
+    font-size: 14px;
+  }
+
+  .work-info p {
+    font-size: 11px;
+  }
+}
+
+/* موبایل خیلی کوچک */
+
+@media (max-width: 400px) {
+  .work-image,
+  .work-large .work-image {
+    min-height: 270px;
+    padding: 16px;
+  }
+
+  .browser-mockup {
+    width: 96%;
+  }
 }
 
 .process-grid {
