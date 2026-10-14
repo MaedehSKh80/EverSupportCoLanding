@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>پنل مدیریت | EverSupport</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside class="sidebar" id="sidebar">
+    <div class="brand"><div class="brand-mark">E</div><div><strong>EverSupport</strong><small>پنل مدیریت</small></div></div>
+    <nav>
+      <button class="nav-link active" data-page="dashboard"><span>▦</span> داشبورد</button>
+      <button class="nav-link" data-page="leads"><span>◉</span> مدیریت لیدها <b id="navLeadCount">۰</b></button>
+      <button class="nav-link" data-page="portfolio"><span>▧</span> نمونه‌کارها</button>
+    </nav>
+    <div class="sidebar-bottom"><div class="admin-avatar">مد</div><div><strong>مدیر سایت</strong><small>حساب مدیر</small></div><span class="online-dot"></span></div>
+  </aside>
+  <main class="main">
+    <header class="topbar">
+      <button class="mobile-menu" id="mobileMenu" aria-label="باز کردن منو">☰</button>
+      <div><div class="eyebrow">پنل مدیریت وب‌سایت</div><h1 id="pageTitle">داشبورد</h1></div>
+      <div class="top-actions"><span class="demo-tag">نسخه نمایشی</span><a class="site-link" href="https://www.eversupportco.ir" target="_blank" rel="noreferrer">مشاهده سایت ↗</a></div>
+    </header>
+
+    <section class="page active" id="page-dashboard">
+      <div class="welcome"><div><p class="welcome-kicker">خوش اومدی 👋</p><h2>وضعیت کسب‌وکارت رو یک‌جا ببین.</h2><p>از اینجا می‌تونی لیدها رو پیگیری کنی و نمونه‌کارهای سایت رو مدیریت کنی.</p></div><div class="welcome-art">ES<span>✦</span></div></div>
+      <div class="stats-grid">
+        <article class="stat-card"><div class="stat-top"><span>کل لیدها</span><span class="stat-icon purple">◉</span></div><strong id="statTotal">۰</strong><small>تمام لیدهای ثبت‌شده</small></article>
+        <article class="stat-card"><div class="stat-top"><span>لیدهای جدید</span><span class="stat-icon blue">✦</span></div><strong id="statNew">۰</strong><small>نیازمند بررسی اولیه</small></article>
+        <article class="stat-card"><div class="stat-top"><span>در حال پیگیری</span><span class="stat-icon orange">↗</span></div><strong id="statFollow">۰</strong><small>در انتظار تماس یا پاسخ</small></article>
+        <article class="stat-card"><div class="stat-top"><span>تبدیل‌شده</span><span class="stat-icon green">✓</span></div><strong id="statWon">۰</strong><small>تبدیل‌شده به مشتری</small></article>
+      </div>
+      <div class="content-grid">
+        <article class="panel"><div class="panel-heading"><div><h3>آخرین لیدها</h3><p>آخرین درخواست‌های ثبت‌شده</p></div><button class="text-button" data-goto="leads">مشاهده همه ←</button></div><div class="table-wrap"><table><thead><tr><th>نام</th><th>راه ارتباطی</th><th>وضعیت</th></tr></thead><tbody id="recentLeads"></tbody></table></div></article>
+        <article class="panel quick-panel"><div class="panel-heading"><div><h3>دسترسی سریع</h3><p>کارهای پرتکرار</p></div></div><button class="quick-action" data-goto="leads"><span class="quick-icon">◉</span><span><strong>بررسی لیدها</strong><small>مشاهده و تغییر وضعیت درخواست‌ها</small></span><b>←</b></button><button class="quick-action" data-goto="portfolio"><span class="quick-icon">▧</span><span><strong>افزودن نمونه‌کار</strong><small>ثبت پروژه جدید در فهرست نمونه‌کارها</small></span><b>←</b></button><div class="notice"><strong>توجه</strong><p>این نسخه فعلاً نمایشی است. اطلاعات هنوز به Google Sheets یا دیتابیس متصل نیست.</p></div></article>
+      </div>
+    </section>
+
+    <section class="page" id="page-leads">
+      <div class="section-intro"><div><h2>مدیریت لیدها</h2><p>در نسخه نهایی، این بخش به اطلاعات Google Sheets متصل می‌شود.</p></div><button class="secondary-button" id="exportLeads">خروجی CSV ↓</button></div>
+      <div class="toolbar"><div class="search-box"><span>⌕</span><input id="leadSearch" placeholder="جست‌وجو بر اساس نام یا شماره..." /></div><select id="statusFilter" aria-label="فیلتر وضعیت"><option value="all">همه وضعیت‌ها</option><option value="جدید">جدید</option><option value="در حال پیگیری">در حال پیگیری</option><option value="در انتظار پاسخ">در انتظار پاسخ</option><option value="تبدیل‌شده">تبدیل‌شده</option><option value="از دست‌رفته">از دست‌رفته</option></select></div>
+      <article class="panel"><div class="table-wrap"><table class="leads-table"><thead><tr><th>نام و نام خانوادگی</th><th>شماره تماس</th><th>خدمت موردنظر</th><th>تاریخ ثبت</th><th>وضعیت</th><th>یادداشت</th></tr></thead><tbody id="leadsTable"></tbody></table></div><div class="table-footer" id="leadCount"></div></article>
+      <p class="footnote">اطلاعات این جدول نمونه هستند و برای نمایش رابط کاربری استفاده شده‌اند.</p>
+    </section>
+
+    <section class="page" id="page-portfolio">
+      <div class="section-intro"><div><h2>نمونه‌کارها</h2><p>پروژه‌هایی که می‌خواهی در سایت نمایش داده شوند مدیریت کن.</p></div><button class="primary-button" id="addProject">＋ افزودن نمونه‌کار</button></div>
+      <div class="portfolio-grid" id="portfolioGrid"></div>
+      <div class="empty-state" id="portfolioEmpty" hidden><div class="empty-icon">▧</div><h3>هنوز نمونه‌کاری اضافه نشده</h3><p>اولین پروژه‌ات رو ثبت کن.</p><button class="primary-button" id="emptyAdd">＋ افزودن نمونه‌کار</button></div>
+      <p class="footnote">در این نسخه، اطلاعات نمونه‌کارها فقط در مرورگر فعلی ذخیره می‌شود. برای انتشار در سایت باید Storage و دیتابیس متصل شوند.</p>
+    </section>
+  </main>
+
+  <dialog id="projectDialog" class="modal">
+    <form id="projectForm">
+      <div class="modal-head"><div><h2 id="modalTitle">افزودن نمونه‌کار</h2><p>اطلاعات پروژه را وارد کن.</p></div><button type="button" class="icon-button" id="closeModal" aria-label="بستن">×</button></div>
+      <input type="hidden" id="projectId">
+      <label>عنوان پروژه <input id="projectName" required maxlength="90" placeholder="مثلاً طراحی وب‌سایت شرکتی"></label>
+      <label>دسته‌بندی <input id="projectCategory" maxlength="60" placeholder="مثلاً طراحی سایت"></label>
+      <label>لینک پروژه <input id="projectUrl" type="url" placeholder="https://example.com"></label>
+      <label>لینک تصویر کاور <input id="projectImage" type="url" placeholder="https://... (فعلاً لینک تصویر)"></label>
+      <label>توضیحات <textarea id="projectDescription" rows="3" maxlength="500" placeholder="چند خط درباره پروژه..."></textarea></label>
+      <label class="checkbox-label"><input type="checkbox" id="projectPublished" checked> نمایش در سایت (در نسخه متصل)</label>
+      <div class="modal-actions"><button type="button" class="secondary-button" id="cancelModal">انصراف</button><button type="submit" class="primary-button">ذخیره نمونه‌کار</button></div>
+    </form>
+  </dialog>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
